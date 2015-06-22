@@ -1,0 +1,18 @@
+<%= form_for(@cryptid) do |f| %>
+  <% if @cryptid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cryptid.errors.count, "error") %> prohibited this cryptid from being saved:</h2>
+
+      <ul>
+      <% @cryptid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+<% end %>

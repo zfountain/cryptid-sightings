@@ -1,0 +1,24 @@
+<!-- PLACEHOLDER -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong><%= link_to 'Cryptids:', cryptids_path %></strong><br>
+  <% @user.cryptids.each do |cryptid| %>
+  <%= cryptid.name %><br>
+  <% end %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
