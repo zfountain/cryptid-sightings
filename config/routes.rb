@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get 'cryptids/edit'
 
   get 'cryptids/index'
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   get 'cryptids/new'
 
   get 'cryptids/show'
+
+  get '/login' => 'user_sessions#new', :as => :login
 
   get 'user_sessions/new'
 
