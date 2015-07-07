@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :users
+  resources :user_sessions
+
   get 'cryptids/edit'
 
   get 'cryptids/index'
@@ -9,18 +11,14 @@ Rails.application.routes.draw do
   get 'cryptids/show'
 
   get '/login' => 'user_sessions#new', :as => :login
-
-  get 'user_sessions/new'
-
-  get 'user_sessions/create'
-
-  get 'user_sessions/destroy'
+  post 'logout' => 'user_sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'cryptids#index'
+  # root :to => 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
