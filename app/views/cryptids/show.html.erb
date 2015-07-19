@@ -1,2 +1,12 @@
-<h1>Cryptids#show</h1>
-<p>Find me in app/views/cryptids/show.html.erb</p>
+<!-- <p id="notice"><#%= notice %></p> -->
+
+<h1>
+  <%= @cryptid.name %>
+</h1>
+
+<p>
+  <%= @cryptid.content %>
+</p>
+
+<%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
+<%= link_to 'Back', cryptids_path %>

@@ -1,0 +1,14 @@
+<!-- <p id="notice"><%#= notice %></p> -->
+
+<h1>Encounters</h1>
+
+    <% @encounters.each do |encounter| %>
+        <h2><%= link_to encounter.title, encounter_path(encounter) %></h2>
+        <p><%= encounter.content %></p>
+        <p><%= encounter.cryptid_id %></p>
+        <p><%= encounter.user_id %></p>
+        <%= link_to 'Show', encounter %> <%= link_to 'Edit', edit_encounter_path(encounter) %> <%= link_to 'Destroy', encounter, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+<br>
+
+<%= link_to 'New Encounter', new_encounter_path %>

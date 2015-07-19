@@ -1,2 +1,21 @@
-<h1>Cryptids#index</h1>
-<p>Find me in app/views/cryptids/index.html.erb</p>
+<!-- <p id="notice"><#%= notice %></p>
+ -->
+<h1>Cryptids</h1>
+
+<table>
+  <tbody>
+    <% @cryptids.each do |cryptid| %>
+      <tr>
+        <td><%= link_to cryptid.name, cryptid_path(cryptid) %></td>
+        <td><%= cryptid.content %></td>
+        <td><%= link_to 'Show', cryptid %></td>
+        <td><%= link_to 'Edit', edit_cryptid_path(cryptid) %></td>
+        <td><%= link_to 'Destroy', cryptid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cryptid', new_cryptid_path %>

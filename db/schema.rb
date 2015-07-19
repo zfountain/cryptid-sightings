@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622212020) do
+ActiveRecord::Schema.define(version: 20150719222558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content",      null: false
+    t.integer  "encounter_id"
+    t.integer  "user_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["encounter_id"], name: "index_comments_on_encounter_id", using: :btree
+
+  create_table "cryptids", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "encounters", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.text     "content",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "cryptid_id"
+  end
+
+  add_index "encounters", ["cryptid_id"], name: "index_encounters_on_cryptid_id", using: :btree
+  add_index "encounters", ["user_id"], name: "index_encounters_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                           null: false
@@ -33,4 +62,7 @@ ActiveRecord::Schema.define(version: 20150622212020) do
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
+  add_foreign_key "comments", "encounters"
+  add_foreign_key "encounters", "cryptids"
+  add_foreign_key "encounters", "users"
 end

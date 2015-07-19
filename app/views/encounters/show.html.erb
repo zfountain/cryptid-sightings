@@ -1,0 +1,15 @@
+<!-- <p id="notice"><#%= notice %></p> -->
+
+<h1>
+  <%= @encounter.title %>
+</h1>
+
+<p>
+  <%= @encounter.content %>
+</p>
+
+  <%= @encounter.cryptid_id %>
+
+
+<%= link_to 'Edit', edit_encounter_path(@encounter) %> |
+<%= link_to 'Back', encounters_path %>

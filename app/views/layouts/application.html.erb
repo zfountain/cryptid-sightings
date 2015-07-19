@@ -8,6 +8,8 @@
   </head>
   <body>
     <div id="nav">
+      <%= link_to "Encounters", encounters_path %>
+      <%= link_to "Cryptids", cryptids_path %>
       <% if current_user %>
         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
         <%= link_to "Logout", :logout, method: :post %>

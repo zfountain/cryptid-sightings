@@ -1,28 +1,35 @@
 class CryptidsController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  skip_before_filter :require_login, only: [:index, :show]
+  before_action :set_cryptid, only: [:show, :edit, :update, :destroy]
 
   # GET /cryptids
   # GET /cryptids.json
+  # Show data for all cryptids
   def index
     @cryptids = Cryptid.all
   end
 
   # GET /cryptids/1
   # GET /cryptids/1.json
+  # Show data for one cryptid
   def show
+    @cryptid = Cryptid.find(params[:id])
   end
 
   # GET /cryptids/new
+  # Displays form for creating a new cryptid
   def new
     @cryptid = Cryptid.new
   end
 
   # GET /cryptids/1/edit
+  # Displays form for editing an existing cryptid
   def edit
   end
 
   # POST /cryptids
   # POST /cryptids.json
+  # Processes data from the new cryptid form and creates a cryptid
   def create
     @cryptid = Cryptid.new(cryptid_params)
 
@@ -39,6 +46,7 @@ class CryptidsController < ApplicationController
 
   # PATCH/PUT /cryptids/1
   # PATCH/PUT /cryptids/1.json
+  # Processes data from the edit cryptid form and updates the cryptid
   def update
     respond_to do |format|
       if @cryptid.update(cryptid_params)
@@ -53,6 +61,7 @@ class CryptidsController < ApplicationController
 
   # DELETE /cryptids/1
   # DELETE /cryptids/1.json
+  # Deletes the cryptid
   def destroy
     @cryptid.destroy
     respond_to do |format|
@@ -69,6 +78,6 @@ class CryptidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cryptid_params
-      params.require(:cryptid).permit(:email, :password, :password_confirmation)
+      params.require(:cryptid).permit(:name, :content)
     end
 end

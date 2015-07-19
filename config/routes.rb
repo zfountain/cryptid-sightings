@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
   resources :users
   resources :user_sessions
-
-  get 'cryptids/edit'
-
-  get 'cryptids/index'
-
-  get 'cryptids/new'
-
-  get 'cryptids/show'
+  resources :encounters
+  resources :cryptids
 
   get '/login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
