@@ -4,9 +4,12 @@
 
     <% @encounters.each do |encounter| %>
         <h2><%= link_to encounter.title, encounter_path(encounter) %></h2>
+        <% if encounter.image %>
+        <img src="<%= encounter.image(:thumb) %>">
+        <% end %>
         <p><%= encounter.content %></p>
-        <p><%= encounter.cryptid_id %></p>
-        <p><%= encounter.user_id %></p>
+        <p><%= encounter.cryptid %></p>
+        <p><%= encounter.user %></p>
         <%= link_to 'Show', encounter %> <%= link_to 'Edit', edit_encounter_path(encounter) %> <%= link_to 'Destroy', encounter, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
 <br>

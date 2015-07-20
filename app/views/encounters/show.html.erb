@@ -3,15 +3,17 @@
 <h1>
   <%= @encounter.title %>
 </h1>
-
+<img src="<%= @encounter.image(:medium) %>">
 <p>
   <%= @encounter.content %>
 </p>
   <!-- if statement is a temporary solution, until all encounters are tied to a user -->
   <% if @encounter.user %>
   <%= @encounter.user.email %>
-  <% end %>  
-  <%= @encounter.cryptid_id %>
+  <% end %>
+  <% if @encounter.cryptid %>
+  <%= @encounter.cryptid.name %>
+  <% end %>
 
 
 <%= link_to 'Edit', edit_encounter_path(@encounter) %> |
