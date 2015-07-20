@@ -7,4 +7,11 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
+  # Define roles for Can Can authorization
+  ROLES = %w[admin moderator author banned]
+  # Define base roles to be managed in Ability model
+  def role?(base_role)
+    ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+
 end
