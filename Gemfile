@@ -29,6 +29,9 @@ gem 'sorcery'
 # Use CanCan for authorization
 gem 'cancan'
 
+# Use Paperclip for image uploads
+gem "paperclip", "~> 4.2"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -7,7 +7,10 @@
 <p>
   <%= @encounter.content %>
 </p>
-
+  <!-- if statement is a temporary solution, until all encounters are tied to a user -->
+  <% if @encounter.user %>
+  <%= @encounter.user.email %>
+  <% end %>  
   <%= @encounter.cryptid_id %>
 
 
