@@ -1,21 +1,14 @@
 <!-- <p id="notice"><#%= notice %></p>
  -->
 <h1>Cryptids</h1>
-
-<table>
-  <tbody>
-    <% @cryptids.each do |cryptid| %>
-      <tr>
-        <td><%= link_to cryptid.name, cryptid_path(cryptid) %></td>
-        <td><%= cryptid.content %></td>
-        <td><%= link_to 'Show', cryptid %></td>
-        <td><%= link_to 'Edit', edit_cryptid_path(cryptid) %></td>
-        <td><%= link_to 'Destroy', cryptid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     <% @cryptids.each do |cryptid| %>
+        <h2><%= link_to cryptid.name, cryptid_path(cryptid) %></h2>
+        <% if cryptid.image %>
+        <img src="<%= cryptid.image(:thumb) %>">
+        <% end %>
+        <p><%= cryptid.content %></p>
+        <%= link_to 'Show', cryptid %> <%= link_to 'Edit', edit_cryptid_path(cryptid) %> <%= link_to 'Destroy', cryptid, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-  </tbody>
-</table>
-
 <br>
 
 <%= link_to 'New Cryptid', new_cryptid_path %>

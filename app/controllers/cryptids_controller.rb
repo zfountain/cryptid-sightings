@@ -78,6 +78,6 @@ class CryptidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cryptid_params
-      params.require(:cryptid).permit(:name, :content)
+      params.require(:cryptid).permit(:name, :content,:image)
     end
 end

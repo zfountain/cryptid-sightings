@@ -19,6 +19,12 @@
     <%= f.label :biography %><br>
     <%= f.text_area :content, :cols => "50", :rows => "10" %>
   </div>
+
+  <div class="field">
+    <%= f.label "Upload an image" %>
+    <%= f.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
