@@ -1,6 +1,7 @@
 class EncountersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
   before_action :set_encounter, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /encounters
   # GET /encounters.json
@@ -11,6 +12,8 @@ class EncountersController < ApplicationController
   # GET /encounters/1
   # GET /encounters/1.json
   def show
+    @encounter = Encounter.find(params[:id])
+    authorize! :read, @encounter
   end
 
   # GET /encounters/new

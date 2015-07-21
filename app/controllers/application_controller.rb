@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     # render layout: 'application', text: ''  
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+      redirect_to root_url, :alert => exception.message
+  end
+
   private
   def not_authenticated
     redirect_to login_path, alert: "Please login first"

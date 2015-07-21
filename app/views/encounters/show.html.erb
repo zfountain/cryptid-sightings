@@ -40,8 +40,9 @@
   </p>
 <% end %>
 
-
-<%= link_to 'Edit', edit_encounter_path(@encounter) %> |
+<% if can? :update, @encounter %>
+  <%= link_to "Edit", edit_encounter_path(@encounter) %> |
+<% end %>
 <%= link_to 'Back', encounters_path %>
 
 </article>
