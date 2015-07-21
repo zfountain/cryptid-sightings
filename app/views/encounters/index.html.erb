@@ -1,17 +1,25 @@
 <!-- <p id="notice"><%#= notice %></p> -->
 
+<div class="grid">
+  <div class="col-2-3">
 <h1>Encounters</h1>
-
     <% @encounters.each do |encounter| %>
-        <h2><%= link_to encounter.title, encounter_path(encounter) %></h2>
-        <% if encounter.image %>
-        <img src="<%= encounter.image(:thumb) %>">
-        <% end %>
-        <p><%= encounter.content %></p>
-        <p><%= encounter.cryptid %></p>
-        <p><%= encounter.user %></p>
-        <%= link_to 'Show', encounter %> <%= link_to 'Edit', edit_encounter_path(encounter) %> <%= link_to 'Destroy', encounter, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <article>
+            <h2><%= link_to encounter.title, encounter_path(encounter) %></h2>
+            <% if encounter.image.exists? %>
+            <img src="<%= encounter.image(:medium) %>">
+            <% end %>
+            <p><%= encounter.content %></p>
+            <p><%= encounter.cryptid %></p>
+            <p><%= encounter.user %></p>
+            <%= link_to 'Show', encounter %> <%= link_to 'Edit', edit_encounter_path(encounter) %> <%= link_to 'Destroy', encounter, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </article>
     <% end %>
-<br>
+    <br>
 
-<%= link_to 'New Encounter', new_encounter_path %>
+    <%= link_to 'New Encounter', new_encounter_path %>
+
+  </div>
+
+
+</div>

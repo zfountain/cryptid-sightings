@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   has_many :encounters
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   # Paperclip image view
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

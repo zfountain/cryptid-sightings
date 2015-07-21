@@ -3,10 +3,15 @@
 <h1>
   <%= @cryptid.name %>
 </h1>
-<img src="<%= @cryptid.image(:medium) %>">
+<article>
+<% if @cryptid.image.exists? %>
+  <img src="<%= @cryptid.image(:medium) %>">
+<% end %>
 <p>
   <%= @cryptid.content %>
 </p>
 
 <%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
 <%= link_to 'Back', cryptids_path %>
+
+</article>

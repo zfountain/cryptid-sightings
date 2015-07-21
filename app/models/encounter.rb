@@ -3,7 +3,7 @@ class Encounter < ActiveRecord::Base
   validates :content, presence: true, length: {minimum: 10}
   belongs_to :user
   belongs_to :cryptid
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   # Paperclip image view
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

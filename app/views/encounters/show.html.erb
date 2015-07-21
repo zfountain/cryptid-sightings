@@ -3,18 +3,45 @@
 <h1>
   <%= @encounter.title %>
 </h1>
-<img src="<%= @encounter.image(:medium) %>">
-<p>
-  <%= @encounter.content %>
-</p>
-  <!-- if statement is a temporary solution, until all encounters are tied to a user -->
-  <% if @encounter.user %>
-  <%= @encounter.user.email %>
+<article>
+  <% if @encounter.image.exists? %>
+    <img src="<%= @encounter.image(:medium) %>">
   <% end %>
-  <% if @encounter.cryptid %>
-  <%= @encounter.cryptid.name %>
+  <p><%= @encounter.content %></p>
+    <!-- if statement is a temporary solution, until all encounters are tied to a user -->
+    <% if @encounter.user %>
+      <p>Posted by <%= @encounter.user.email %></p>
+    <% end %>
+    <% if @encounter.cryptid %>
+      <p>Filed under <%= @encounter.cryptid.name %></p>
+    <% end %>
+
+  <% @encounter.comments.each do |comment| %>
+    <p><%= comment.content %><br>
+      <%#= comment.user.email %>
+    </p>
   <% end %>
+
+
+
+
+<h3>Add a comment:</h3>
+<%= form_for([@encounter, @encounter.comments.build]) do |f| %>
+  <!-- <p>
+    <%#= f.label :commenter %><br>
+    <%#= f.text_field :commenter %>
+  </p> -->
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_encounter_path(@encounter) %> |
 <%= link_to 'Back', encounters_path %>
+
+</article>

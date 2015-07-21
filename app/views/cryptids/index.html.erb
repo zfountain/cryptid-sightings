@@ -3,7 +3,7 @@
 <h1>Cryptids</h1>
      <% @cryptids.each do |cryptid| %>
         <h2><%= link_to cryptid.name, cryptid_path(cryptid) %></h2>
-        <% if cryptid.image %>
+        <% if cryptid.image.exists? %>
         <img src="<%= cryptid.image(:thumb) %>">
         <% end %>
         <p><%= cryptid.content %></p>

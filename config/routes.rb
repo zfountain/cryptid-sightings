@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :users
   resources :user_sessions
-  resources :encounters
+  resources :encounters do
+    resources :comments
+  end
   resources :cryptids
+
 
   get '/login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
