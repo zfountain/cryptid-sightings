@@ -1,17 +1,20 @@
 <!-- <p id="notice"><#%= notice %></p> -->
+<div class="grid">
+  <div class="col-3-3">
+    <h1>
+      <%= @cryptid.name %>
+    </h1>
+    <article>
+    <% if @cryptid.image.exists? %>
+      <img src="<%= @cryptid.image(:medium) %>">
+    <% end %>
+    <p>
+      <%= @cryptid.content %>
+    </p>
 
-<h1>
-  <%= @cryptid.name %>
-</h1>
-<article>
-<% if @cryptid.image.exists? %>
-  <img src="<%= @cryptid.image(:medium) %>">
-<% end %>
-<p>
-  <%= @cryptid.content %>
-</p>
+    <%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
+    <%= link_to 'More cryptids', cryptids_path %>
 
-<%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
-<%= link_to 'Back', cryptids_path %>
-
-</article>
+    </article>
+  </div>
+</div>

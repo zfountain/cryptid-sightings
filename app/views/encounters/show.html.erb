@@ -1,48 +1,52 @@
 <!-- <p id="notice"><#%= notice %></p> -->
 
-<h1>
-  <%= @encounter.title %>
-</h1>
-<article>
-  <% if @encounter.image.exists? %>
-    <img src="<%= @encounter.image(:medium) %>">
-  <% end %>
-  <p><%= @encounter.content %></p>
-    <!-- if statement is a temporary solution, until all encounters are tied to a user -->
-    <% if @encounter.user %>
-      <p>Posted by <%= @encounter.user.email %></p>
+<div class="grid">
+  <div class="col-3-3">
+    <h1>
+      <%= @encounter.title %>
+    </h1>
+    <article>
+      <% if @encounter.image.exists? %>
+        <img src="<%= @encounter.image(:medium) %>">
+      <% end %>
+      <p><%= @encounter.content %></p>
+        <!-- if statement is a temporary solution, until all encounters are tied to a user -->
+        <% if @encounter.user %>
+          <p>Posted by <%= @encounter.user.email %></p>
+        <% end %>
+        <% if @encounter.cryptid %>
+          <p>Filed under <%= @encounter.cryptid.name %></p>
+        <% end %>
+
+      <% @encounter.comments.each do |comment| %>
+        <p><%= comment.content %><br>
+          <%#= comment.user.email %>
+        </p>
+      <% end %>
+
+
+
+
+    <h3>Add a comment:</h3>
+    <%= form_for([@encounter, @encounter.comments.build]) do |f| %>
+      <!-- <p>
+        <%#= f.label :commenter %><br>
+        <%#= f.text_field :commenter %>
+      </p> -->
+      <p>
+        <%= f.label :comment %><br>
+        <%= f.text_area :content %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
     <% end %>
-    <% if @encounter.cryptid %>
-      <p>Filed under <%= @encounter.cryptid.name %></p>
+
+    <% if can? :update, @encounter %>
+      <%= link_to "Edit", edit_encounter_path(@encounter) %> |
     <% end %>
+    <%= link_to 'More encounters', encounters_path %>
 
-  <% @encounter.comments.each do |comment| %>
-    <p><%= comment.content %><br>
-      <%#= comment.user.email %>
-    </p>
-  <% end %>
-
-
-
-
-<h3>Add a comment:</h3>
-<%= form_for([@encounter, @encounter.comments.build]) do |f| %>
-  <!-- <p>
-    <%#= f.label :commenter %><br>
-    <%#= f.text_field :commenter %>
-  </p> -->
-  <p>
-    <%= f.label :comment %><br>
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<% if can? :update, @encounter %>
-  <%= link_to "Edit", edit_encounter_path(@encounter) %> |
-<% end %>
-<%= link_to 'Back', encounters_path %>
-
-</article>
+    </article>
+  </div>
+</div>
