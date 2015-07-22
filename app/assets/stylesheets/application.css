@@ -39,7 +39,24 @@ header, footer {
 h1 {
   font-size: 3em;
   margin: 1.5%;
+/*  animation-duration: 3s;
+  animation-name: slidein;*/
 }
+
+/*@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}*/
+
+
+
 
 h2 {
   font-size: 2em;
