@@ -3,7 +3,7 @@
   <head>
     <title>Cryptid Sightings Across the World</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     <%= csrf_meta_tags %>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,8 +13,9 @@
       <span>Tell Your Story</span>
       <h1>Cryptid Sightings</h1>
       <div id="nav">
-        <%= link_to "Encounters", encounters_path %>
-        <%= link_to "Cryptids", cryptids_path %>
+        <%#= link_to "Encounters", encounters_path %>
+        <%#= link_to "Cryptids", cryptids_path %>
+        <%= link_to "Home", "/" %>        
         <% if current_user %>
           <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
           <%= link_to "Logout", :logout, method: :post %>
@@ -32,5 +33,7 @@
     <%= yield %>
 
     <footer><p>Don't be scared</p></footer>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

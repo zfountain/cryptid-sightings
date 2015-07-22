@@ -7,6 +7,7 @@ class CryptidsController < ApplicationController
   # Show data for all cryptids
   def index
     @cryptids = Cryptid.all
+    render json: @cryptids.to_json, status: 200
   end
 
   # GET /cryptids/1
@@ -14,6 +15,7 @@ class CryptidsController < ApplicationController
   # Show data for one cryptid
   def show
     @cryptid = Cryptid.find(params[:id])
+    # render json: @cryptid.to_json, status: 200
   end
 
   # GET /cryptids/new

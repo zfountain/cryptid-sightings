@@ -1,7 +1,7 @@
 <!-- <p id="notice"><#%= notice %></p> -->
 
 <div class="grid">
-  <div class="col-3-3">
+  <div class="col-2-3">
     <h1>
       <%= @encounter.title %>
     </h1>
@@ -45,8 +45,19 @@
     <% if can? :update, @encounter %>
       <%= link_to "Edit", edit_encounter_path(@encounter) %> |
     <% end %>
-    <%= link_to 'More encounters', encounters_path %>
+    <%= link_to 'More encounters', "/" %>
 
     </article>
+  </div>
+  <div class="col-1-3">
+    <div class="cryptids-list">
+      <h2>Cryptids</h2>
+      <ul id="cryptids">
+
+        <%# @cryptids.each do |cryptid| %>
+          <li><%#= link_to cryptid.name, cryptid_path(cryptid) %></li>
+        <%# end %>
+      </ul>
+    </div>
   </div>
 </div>

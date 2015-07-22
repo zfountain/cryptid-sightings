@@ -8,12 +8,14 @@ class EncountersController < ApplicationController
   def index
     @encounters = Encounter.all
     @cryptids = Cryptid.all
+    render json: @encounters.to_json, status: 200
   end
 
   # GET /encounters/1
   # GET /encounters/1.json
   def show
     @encounter = Encounter.find(params[:id])
+    # render json: @encounter.to_json, status: 200
     # Manually manage authorization in ability.rb
     authorize! :read, @encounter
   end
