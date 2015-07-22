@@ -12,35 +12,35 @@
       <p><%= @encounter.content %></p>
         <!-- if statement is a temporary solution, until all encounters are tied to a user -->
         <% if @encounter.user %>
-          <p>Posted by <%= @encounter.user.email %></p>
+          <p>Posted by <%= @encounter.user.username %></p>
         <% end %>
         <% if @encounter.cryptid %>
           <p>Filed under <%= @encounter.cryptid.name %></p>
         <% end %>
 
-      <% @encounter.comments.each do |comment| %>
-        <p><%= comment.content %><br>
+      <%# @encounter.comments.each do |comment| %>
+        <!-- <p><%#= comment.content %><br>
           <%#= comment.user.email %>
-        </p>
-      <% end %>
+        </p> -->
+      <%# end %>
 
 
 
 
-    <h3>Add a comment:</h3>
-    <%= form_for([@encounter, @encounter.comments.build]) do |f| %>
+    <!-- <h3>Add a comment:</h3> -->
+    <%#= form_for([@encounter, @encounter.comments.build]) do |f| %>
       <!-- <p>
         <%#= f.label :commenter %><br>
         <%#= f.text_field :commenter %>
       </p> -->
       <p>
-        <%= f.label :comment %><br>
-        <%= f.text_area :content %>
+        <%#= f.label :comment %><br>
+        <%#= f.text_area :content %>
       </p>
       <p>
-        <%= f.submit %>
+        <%#= f.submit %>
       </p>
-    <% end %>
+    <%# end %>
 
     <% if can? :update, @encounter %>
       <%= link_to "Edit", edit_encounter_path(@encounter) %> |

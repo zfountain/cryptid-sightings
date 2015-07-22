@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
   
   def create
     @encounter = Encounter.find(params[:encounter_id])
-    @user = User.find(params[:id])
-    @comment = @encounter.comments.create(comment_params)
+    @user = User.find(params[:user_id])
+    @comment = @encounter.comments.build(comment_params)
     redirect_to encounter_path(@encounter)
   end
 

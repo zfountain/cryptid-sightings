@@ -1,7 +1,7 @@
 class EncountersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
   before_action :set_encounter, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   # GET /encounters
   # GET /encounters.json
@@ -33,6 +33,7 @@ class EncountersController < ApplicationController
   # POST /encounters.json
   def create
     # @encounter = Encounter.new(encounter_params)
+    # Ties user to an encounter
     @encounter = current_user.encounters.build(encounter_params)
 
     respond_to do |format|
@@ -78,6 +79,6 @@ class EncountersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def encounter_params
-      params.require(:encounter).permit(:title, :content, :image)
+      params.require(:encounter).permit(:title, :content, :image, :city, :state, :country, :cryptid_id, :user_id)
     end
 end
