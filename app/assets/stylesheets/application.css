@@ -132,6 +132,14 @@ p {
   padding: 0.5%;
 }
 
+.new-encounter {
+  font-size: 2em;
+  text-transform: uppercase;
+  background-color: #FFF;
+  padding: 2%;
+  border-radius: 10px;
+  width: 30%;
+}
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
