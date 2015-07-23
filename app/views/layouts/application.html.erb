@@ -10,19 +10,21 @@
   </head>
   <body>
     <header>
-      <span>Tell Your Story</span>
+      <!-- <span>Tell Your Story</span> -->
       <h1>Cryptid Sightings</h1>
       <div id="nav">
         <%#= link_to "Encounters", encounters_path %>
         <%#= link_to "Cryptids", cryptids_path %>
-        <%= link_to "Home", "/" %>        
+        <%= link_to "Home", "/" %> |       
         <% if current_user %>
-          <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+          <%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
           <%= link_to "Logout", :logout, method: :post %>
         <% else %>
           <%= link_to "Register", new_user_path %> |
           <%= link_to "Login", :login %>
         <% end %>
+        <br>
+        <%= link_to "Tell Your Story", new_encounter_path %>
       </div>
       <div>
         <p id="notice"><%= flash[:notice] %></p>

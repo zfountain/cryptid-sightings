@@ -27,6 +27,7 @@ class EncountersController < ApplicationController
 
   # GET /encounters/1/edit
   def edit
+    authorize! :manage, @encounter
   end
 
   # POST /encounters
