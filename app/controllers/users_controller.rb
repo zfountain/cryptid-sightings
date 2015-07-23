@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
-  skip_authorize_resource :only => :new
+  # load_and_authorize_resource
+  # skip_authorize_resource :only => [:new, :create]
   # GET /users
   # GET /users.json
   def index
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+   authorize! :manage, @user
   end
 
   # POST /users
