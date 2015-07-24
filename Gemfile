@@ -32,6 +32,9 @@ gem 'cancan'
 # Use Paperclip for image uploads
 gem "paperclip", "~> 4.2"
 
+# Use aws-sdk for image storage
+gem 'aws-sdk', '~> 1.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
