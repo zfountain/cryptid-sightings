@@ -13,4 +13,6 @@ class Encounter < ActiveRecord::Base
   validates_attachment :image,
   :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
 
+  validates_with AttachmentSizeValidator, :attributes => :image, :less_than => 1.megabytes
+
 end
