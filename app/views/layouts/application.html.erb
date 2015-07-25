@@ -3,7 +3,6 @@
   <head>
     <title>Cryptid Sightings Across the World</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
     <%= csrf_meta_tags %>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +10,10 @@
   <body>
     <header>
       <!-- <span>Tell Your Story</span> -->
-      <h1>Cryptid Sightings</h1>
+      <h1><%= link_to 'Cryptid Sightings', "/" %></h1>
       <div id="nav">
         <%#= link_to "Encounters", encounters_path %>
         <%#= link_to "Cryptids", cryptids_path %>
-        <%= link_to "Home", "/" %> |       
         <% if current_user %>
           <%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
           <%= link_to "Logout", :logout, method: :post %>
@@ -23,19 +21,35 @@
           <%= link_to "Register", new_user_path %> |
           <%= link_to "Login", :login %>
         <% end %>
-        <br>
-        <%= link_to "Tell Your Story", new_encounter_path %>
       </div>
       <div>
         <p id="notice"><%= flash[:notice] %></p>
         <p id="alert"><%= flash[:alert] %></p>
       </div>
     </header>
+    <div class="grid">
+      <div class="col-2-3">
+        <%= yield %>
+      </div>
+      <div class="col-1-3">
+        <div class="cryptids-list">
+          <div class="buttons">
+            <%= link_to 'Add a New Encounter', new_encounter_path %>
+          </div>
+          <div class="buttons">
+            <%= link_to 'Add a New Cryptid', new_cryptid_path %>
+          </div>
+          <h2>Cryptids</h2>
+          <ul id="cryptids">
 
-    <%= yield %>
-
+            <%# @cryptids.each do |cryptid| %>
+              <li><%#= link_to cryptid.name, cryptid_path(cryptid) %></li>
+            <%# end %>
+          </ul>
+        </div>
+      </div>
+    </div>
     <footer><p>Don't be scared</p></footer>
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>
