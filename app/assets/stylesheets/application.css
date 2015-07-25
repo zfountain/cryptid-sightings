@@ -19,6 +19,12 @@ html, body {
 a {
   text-decoration: none;
 }
+a:hover {
+  background-color: #C5BCBD;
+}
+a:visited {
+    color: inherit;
+}
 article {
   background-color: #FFF;
   margin: 1%;
@@ -29,16 +35,27 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-header, footer {
+header {
   background-color: #72818B;
   color: #c4e4e9;
   padding: 1%;
   text-align: center;
 }
 
+
+
+footer {
+  background-color: #72818B;
+  color: #c4e4e9;
+  padding: 1%;
+  text-align: center;
+}
+
+
 h1 {
-  font-size: 3em;
-  margin: 1.5%;
+  color: #c4e4e9;
+  font-size: 6em;
+  margin: 3%;
   animation-name: fade-in;
 }
 
@@ -80,6 +97,22 @@ p {
   overflow: scroll;
 }*/
 
+.buttons {
+  background-color:#3299BB;
+  border-radius:5px;
+  font-size:1.25em;
+  margin: 5%;
+  padding: 2%;
+  text-align:center;
+  text-transform:uppercase;
+}
+.buttons a {
+  color:#E9E9E9;
+}
+.buttons:last-of-type {
+  margin-bottom: 10%;
+}
+
 /*Show view*/
 .col-3-3 {
   background-color: #98918B;
@@ -100,7 +133,7 @@ p {
 
 /*Sidebar*/
 .col-1-3 {
-  background-color: #C5BCBD;
+  background-color: #98918B;
   float: left;
   height: 100%;
   padding: 2%;
@@ -110,6 +143,7 @@ p {
 .cryptids-list {
   background-color: #FFF;
   margin: 5%;
+  margin-top:20%;
   padding: 5%;
 }
 
@@ -128,14 +162,14 @@ p {
   color: #BEE2E7;
 }
 
+#nav {
+  float: right;
+}
+
 #nav > a {
   color: #BEE2E7;
   font-size: 1.25em;
   text-transform: uppercase;
-}
-
-a:hover {
-  background-color: #BEE2E7;
 }
 
 /*Style for flash and alert notices*/
@@ -148,7 +182,7 @@ a:hover {
 
 #sub {
   font-size: 3em;
-  margin: 1.5%;
+  margin: 3%;
 }
 
 .new-encounter {
@@ -175,13 +209,27 @@ a:hover {
 /* Responsive settings */
 @media (max-width: 700px) {
   /*Main column*/
-  h1 {
-    margin: 4%;
+  #sub {
+    line-height: 90%;
   }
-
+  h1 {
+    font-size: 4em;
+    padding: 2%;
+  }
   h2 {
     font-size: 1.5em;
   }
+  .buttons {
+    background-color:#3299BB;
+    border-radius:5px;
+    font-size:1.75em;
+    margin: 10% auto;
+    padding: 5%;
+    text-align:center;
+    text-transform:uppercase;
+    width: 65%;
+  }
+
   .col-2-3 {
     padding: 2%;
     width: auto;
@@ -190,10 +238,9 @@ a:hover {
   /*Sidebar*/
   .col-1-3 {
     background-color: #C5BCBD;
-    float: none;
     height: initial;
     padding: 2%;
-    width: auto;
+    width: 100%;
   }  
   .cryptids-list {
     background-color: #FFF;

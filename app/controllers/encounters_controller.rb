@@ -53,7 +53,7 @@ class EncountersController < ApplicationController
   def update
     respond_to do |format|
       if @encounter.update(encounter_params)
-        format.html { redirect_to @encounter, notice: 'Encounter was successfully updated.' }
+        format.html { redirect_to @encounter, notice: 'You have updated your encounter!' }
         format.json { render :show, status: :ok, location: @encounter }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class EncountersController < ApplicationController
   def destroy
     @encounter.destroy
     respond_to do |format|
-      format.html { redirect_to encounters_url, notice: 'Encounter was successfully destroyed.' }
+      format.html { redirect_to '/', notice: 'You have deleted your encounter.' }
       format.json { head :no_content }
     end
   end
