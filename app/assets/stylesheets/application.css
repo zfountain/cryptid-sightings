@@ -42,37 +42,12 @@ header {
   text-align: center;
 }
 
-
-
 footer {
   background-color: #72818B;
   color: #c4e4e9;
   padding: 1%;
   text-align: center;
 }
-
-
-h1 {
-  color: #c4e4e9;
-  font-size: 6em;
-  margin: 3%;
-  animation-name: fade-in;
-}
-
-@-webkit-keyframes fade-in {
-  0%   { opacity: 0.05; }
-  25%  { opacity: .50; }
-  50%   { opacity: 1; }
-  100% { opacity: 0.05; }
-}
-
-header > h1 {
-  -webkit-animation: fade-in 8s infinite; /* Safari 4+ */
-  -moz-animation:    fade-in 8s infinite; /* Fx 5+ */
-  -o-animation:      fade-in 8s infinite; /* Opera 12+ */
-  animation:         fade-in 8s infinite; /* IE 10+, Fx 29+ */
-}
-
 
 h2 {
   font-size: 2em;
@@ -93,11 +68,66 @@ p {
   white-space: pre-wrap;
 }
 
+#nav {
+  float: right;
+}
+
+#nav > a {
+  color: #BEE2E7;
+  font-size: 1.25em;
+  text-transform: uppercase;
+}
+
+/*Style for flash and alert notices*/
+#notice {
+  /*background-color: #FFF;*/
+  color: black;
+  font-size: 1.25em;
+  padding: 0.5%;
+}
+
+#site-title {
+  color: #c4e4e9;
+  display: block;
+  font-size: 6em;
+  margin: 3%;
+  padding: 0px;
+  border: 0px;
+  animation-name: fade-in;
+}
+
+@-webkit-keyframes fade-in {
+  0%   { opacity: 0.05; }
+  25%  { opacity: .50; }
+  50%   { opacity: 1; }
+  100% { opacity: 0.05; }
+}
+
+#site-title {
+  -webkit-animation: fade-in 8s infinite; /* Safari 4+ */
+  -moz-animation:    fade-in 8s infinite; /* Fx 5+ */
+  -o-animation:      fade-in 8s infinite; /* Opera 12+ */
+  animation:         fade-in 8s infinite; /* IE 10+, Fx 29+ */
+}
+
 /*.articles {
   overflow: scroll;
 }*/
+.buttons-form {
+  background-color: #3299BB;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  font-size: 1.25em;
+  padding: 2%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #E9E9E9;
+  width: 25%;
+  border: 0;
+}
 
-.buttons {
+.buttons-sidebar {
   background-color:#3299BB;
   border-radius:5px;
   font-size:1.25em;
@@ -105,12 +135,16 @@ p {
   padding: 2%;
   text-align:center;
   text-transform:uppercase;
+  width: 65%;
 }
-.buttons a {
+.buttons-sidebar,.buttons-top a {
   color:#E9E9E9;
 }
-.buttons:last-of-type {
+.buttons-sidebar:last-of-type {
   margin-bottom: 10%;
+}
+.buttons-top {
+  display: none;
 }
 
 /*Show view*/
@@ -143,9 +177,17 @@ p {
 .cryptids-list {
   background-color: #FFF;
   margin: 5%;
-  margin-top:20%;
+  margin-top:11%;
   padding: 5%;
 }
+
+div.field {
+  font-size: 1.25em;
+}
+textarea, input {
+  font-size: 1.25em;
+}
+
 
 .grid {
   margin: 0px auto;
@@ -162,27 +204,10 @@ p {
   color: #BEE2E7;
 }
 
-#nav {
-  float: right;
-}
-
-#nav > a {
-  color: #BEE2E7;
-  font-size: 1.25em;
-  text-transform: uppercase;
-}
-
-/*Style for flash and alert notices*/
-#notice {
-  /*background-color: #FFF;*/
-  color: black;
-  font-size: 1.25em;
-  padding: 0.5%;
-}
-
-#sub {
+.sub {
   font-size: 3em;
-  margin: 3%;
+  margin: 1%;
+  margin-bottom: 2%;
 }
 
 .new-encounter {
@@ -209,30 +234,46 @@ p {
 /* Responsive settings */
 @media (max-width: 700px) {
   /*Main column*/
-  #sub {
-    line-height: 90%;
+  #nav {
+    float: none;
   }
-  h1 {
+  .sub {
+    line-height: 90%;
+    font-size: 2em;
+    padding: 2%;
+    line-height: 1em;
+  }
+  #site-title {
     font-size: 4em;
     padding: 2%;
+    line-height: 1em;
   }
   h2 {
     font-size: 1.5em;
   }
-  .buttons {
+  .buttons-form {
+    width: 75%;
+  }
+  .buttons-sidebar {
+    display: none;
+
+  }
+  .buttons-top {
     background-color:#3299BB;
     border-radius:5px;
+    display: block;
     font-size:1.75em;
-    margin: 10% auto;
+    line-height: 1.5em;
+    margin: 5% auto;
     padding: 5%;
     text-align:center;
     text-transform:uppercase;
-    width: 65%;
+    width: 75%;
   }
 
   .col-2-3 {
     padding: 2%;
-    width: auto;
+    width: 100%;
   }
 
   /*Sidebar*/

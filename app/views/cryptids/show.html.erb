@@ -1,7 +1,7 @@
 <!-- <p id="notice"><#%= notice %></p> -->
-    <h2 id="sub">
+    <h1 class="sub">
       <%= @cryptid.name %>
-    </h2>
+    </h1>
     <article>
     <% if @cryptid.image.exists? %>
       <img src="<%= @cryptid.image(:medium) %>">

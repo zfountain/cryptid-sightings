@@ -2,7 +2,7 @@ class Cryptid < ActiveRecord::Base
   # Iclude SanitizeHelper to strip tags from form submissions
   include ActionView::Helpers::SanitizeHelper
 
-  validates :name, length: { minimum: 3 }
+  validates :name, uniqueness: true, presence: true, length: { minimum: 3 }
   has_many :encounters
 
   before_save do |cryptid|

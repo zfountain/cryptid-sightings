@@ -1,7 +1,7 @@
 <!-- <p id="notice"><#%= notice %></p> -->
-    <h2 id="sub">
+    <h1 class="sub">
       <%= @encounter.title %>
-    </h2>
+    </h1>
     <article>
       <% if @encounter.image.exists? %>
         <img src="<%= @encounter.image(:medium) %>">
