@@ -30,48 +30,51 @@ article {
   margin: 1%;
   padding: 2%;
 }
-
 body {
   font-family: 'Roboto Condensed', sans-serif;
 }
-
 header {
   background-color: #72818B;
   color: #c4e4e9;
   padding: 1%;
   text-align: center;
 }
-
 footer {
   background-color: #72818B;
   color: #c4e4e9;
   padding: 1%;
   text-align: center;
 }
-
 h2 {
   font-size: 2em;
   margin-bottom: 1%;
 }
-
 h3 {
   font-size: 1.5em;
   margin-bottom: 1%;
 }
-
 li {
  font-size:1.25em;
 }
-
 p {
+  font-size: 1.25em;
+  line-height: 1.5;
   padding-bottom: 1%;
   white-space: pre-wrap;
 }
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 
+  width: 100%;
+}
+#encounter_image {
+  cursor: pointer;
+}
 #nav {
   float: right;
 }
-
 #nav > a {
   color: #BEE2E7;
   font-size: 1.25em;
@@ -85,7 +88,6 @@ p {
   font-size: 1.25em;
   padding: 0.5%;
 }
-
 #site-title {
   color: #c4e4e9;
   display: block;
@@ -102,14 +104,12 @@ p {
   50%   { opacity: 1; }
   100% { opacity: 0.05; }
 }
-
 #site-title {
   -webkit-animation: fade-in 8s infinite; /* Safari 4+ */
   -moz-animation:    fade-in 8s infinite; /* Fx 5+ */
   -o-animation:      fade-in 8s infinite; /* Opera 12+ */
   animation:         fade-in 8s infinite; /* IE 10+, Fx 29+ */
 }
-
 /*.articles {
   overflow: scroll;
 }*/
@@ -123,10 +123,9 @@ p {
   text-align: center;
   text-transform: uppercase;
   color: #E9E9E9;
-  width: 25%;
+  width: 30%;
   border: 0;
 }
-
 .buttons-sidebar {
   background-color:#3299BB;
   border-radius:5px;
@@ -173,43 +172,35 @@ p {
   padding: 2%;
   width: 30%;
 }
-
 .cryptids-list {
   background-color: #FFF;
   margin: 5%;
   margin-top:11%;
   padding: 5%;
 }
-
 div.field {
   font-size: 1.25em;
 }
 textarea, input {
   font-size: 1.25em;
 }
-
-
 .grid {
   margin: 0px auto;
   height: 100%;
 }
-
 .grid:after {
   content:"";
   display: table;
   clear:both;
 }
-
 .story {
   color: #BEE2E7;
 }
-
 .sub {
   font-size: 3em;
   margin: 1%;
   margin-bottom: 2%;
 }
-
 .new-encounter {
   font-size: 2em;
   text-transform: uppercase;
@@ -256,7 +247,6 @@ textarea, input {
   }
   .buttons-sidebar {
     display: none;
-
   }
   .buttons-top {
     background-color:#3299BB;
@@ -270,7 +260,6 @@ textarea, input {
     text-transform:uppercase;
     width: 75%;
   }
-
   .col-2-3 {
     padding: 2%;
     width: 100%;
@@ -278,7 +267,6 @@ textarea, input {
 
   /*Sidebar*/
   .col-1-3 {
-    background-color: #C5BCBD;
     height: initial;
     padding: 2%;
     width: 100%;
@@ -288,7 +276,6 @@ textarea, input {
     margin: 5%;
     padding: 5%;
   }
-
   .grid {
     height:auto;
   }

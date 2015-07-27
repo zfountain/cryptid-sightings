@@ -9,8 +9,12 @@
     <p>
       <%= @cryptid.content %>
     </p>
-
-    <%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
-    <%= link_to 'More encounters', "/" %>
+    <% if can? :update, @cryptid %>
+      <%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
+      <% end %>
+    <% if can? :destroy, @cryptid %>
+      <%= link_to 'Delete', @cryptid, method: :delete, data: { confirm: 'Are you sure you want to delete this cryptid?' } %> |
+    <% end %>   
+    <%= link_to 'Home', "/" %>
 
     </article>

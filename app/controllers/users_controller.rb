@@ -6,13 +6,21 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    redirect_to "/"
-    # @users = User.all
+    if can? :read, @user
+      @users = User.all
+    else
+      redirect_to "/", notice: "Sorry! That page isn\'t available."
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    if can? :read, @user
+      user ||= User.new
+    else
+      redirect_to "/", notice: "Sorry! That page isn\'t available."
+    end
   end
 
   # GET /users/new
