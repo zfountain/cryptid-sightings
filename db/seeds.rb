@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Cryptid.create(name: "Bigfoot", content: "Bigfoot, also known as Sasquatch, is a big, hairy beast often spotted in the forest of the Pacific Northwest")
+# Cryptid.create(name: "Bigfoot", content: "Bigfoot, also known as Sasquatch, is a big, hairy beast often spotted in the forest of the Pacific Northwest")
 
-Cryptid.create(name: "Chupacabras", content: "Chupacabras are small monsters who suck the blood of cattle, goats, and other livestock, and are often seen in the Southwestern United States and northern Mexico.")
+# Cryptid.create(name: "Chupacabras", content: "Chupacabras are small monsters who suck the blood of cattle, goats, and other livestock, and are often seen in the Southwestern United States and northern Mexico.")
 
-Cryptid.create(name: "Jackalope", content: "A fiesty little creature; an antelope crossed with a rabbit.")
+# Cryptid.create(name: "Jackalope", content: "A fiesty little creature; an antelope crossed with a rabbit.")
 
-Cryptid.create(name: "Mothman", content: "Mothman is a giant moth, confirmed to have lived in the Point Pleasant, WV area. His current whereabouts are unknown.")
+# Cryptid.create(name: "Mothman", content: "Mothman is a giant moth, confirmed to have lived in the Point Pleasant, WV area. His current whereabouts are unknown.")
