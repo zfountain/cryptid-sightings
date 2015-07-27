@@ -136,7 +136,7 @@ textarea {
   text-transform:uppercase;
   width: 65%;
 }
-.buttons-sidebar,.buttons-top a {
+.buttons-sidebar > a, .buttons-top > a {
   color:#E9E9E9;
 }
 .buttons-sidebar:last-of-type {
@@ -288,7 +288,3 @@ textarea, input {
     width: 55%;
   }
 }
-
-
-
-
