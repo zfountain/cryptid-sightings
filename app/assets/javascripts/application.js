@@ -23,7 +23,7 @@ $(document).ready(function() {
     url: "/cryptids",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
-      console.log(data);
+      // console.log(data);
       var cryptids = data;
       for (var i = 0; i < cryptids.length; i++) {
         var cryptid = cryptids[i];
@@ -31,7 +31,7 @@ $(document).ready(function() {
         var cryptidId = cryptid.id;
         var html = $("<li><a href='/cryptids/" + cryptidId + "'>" + cryptidName + "</a></li>");
           $("#cryptids").prepend(html);
-          console.log(cryptidName);
+          // console.log(cryptidName);
       }
     },
     error: function() {
@@ -48,7 +48,7 @@ $(document).ready(function() {
     url: "/encounters",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
-      console.log(data);
+      // console.log(data);
       var encounters = data;
       for (var i = 0; i < encounters.length; i++) {
         var encounter = encounters[i];
@@ -57,7 +57,7 @@ $(document).ready(function() {
         var encounterId = encounter.id;
         var html = $("<article><h2>" + encounterTitle + "</h2>" + "<p>" + encounterContent + "</p><a href='/encounters/" + encounterId + "'>Read more</a></article>");
           $("#encounters").prepend(html);
-          console.log(encounterTitle);
+          // console.log(encounterTitle);
       }
     },
     error: function() {
