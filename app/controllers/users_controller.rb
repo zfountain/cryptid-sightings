@@ -16,11 +16,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if can? :read, @user
-      user ||= User.new
-    else
-      redirect_to "/", notice: "Sorry! That page isn\'t available."
-    end
+    # if can? :read, @user
+    #   user ||= User.new
+    # else
+    #   redirect_to "/", notice: "Sorry! That page isn\'t available."
+    # end
   end
 
   # GET /users/new

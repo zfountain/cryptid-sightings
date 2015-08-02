@@ -1,21 +1,18 @@
 <% if @user.image.exists? %>
   <img src="<%= @user.image(:medium) %>">
 <% end %>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @user.first_name %>  <%= @user.last_name %>
-</p>
-
+<h1 class="sub"><%= @user.username %>, Cryptozoologist Extraordinaire</h1>
+<article>
+<h2>Sightings by <%= @user.username %></h2>
+<% @user.encounters.each do |encounter| %>
+<section>
+  <h2><%= link_to encounter.title, encounter_path(encounter) %></h2>
+  <p><%= truncate(encounter.content, length: 80) %></p>
+  <span><%= link_to "Read more", encounter_path(encounter) %></span>
+</section>
+<% end %>
 
 <% if can? :update, @user %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Edit My Profile', edit_user_path(@user) %>
 <% end %>
-<%= link_to 'Back', "/" %>
+</article>

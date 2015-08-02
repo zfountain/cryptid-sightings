@@ -1,46 +1,43 @@
 <!-- <p id="notice"><#%= notice %></p> -->
-    <h1 class="sub">
-      <%= @encounter.title %>
-    </h1>
-    <article>
-      <% if @encounter.image.exists? %>
-        <img src="<%= @encounter.image(:medium) %>">
-      <% end %>
-      <p><%= @encounter.content %></p>
-      <p>Posted by <%= @encounter.user.username %></p>
-      <p>Location: <%= @encounter.city %>, <%= @encounter.state %>, <%= @encounter.country %></p>
-      <p>Filed under <%= @encounter.cryptid.name %></p>
+<h1 class="sub">
+  <%= @encounter.title %>
+</h1>
+<article>
+  <% if @encounter.image.exists? %>
+    <img src="<%= @encounter.image(:medium) %>">
+  <% end %>
+  <p><%= @encounter.content %></p>
+  <p>Posted by <%= link_to @encounter.user.username, user_path(@encounter.user) %></p>
+  <p>Location: <%= @encounter.city %>, <%= @encounter.state %>, <%= @encounter.country %></p>
+  <p>Filed under <%= link_to @encounter.cryptid.name, cryptid_path(@encounter.cryptid) %></p>
 
-      <%# @encounter.comments.each do |comment| %>
-        <!-- <p><%#= comment.content %><br>
-          <%#= comment.user.email %>
-        </p> -->
-      <%# end %>
+  <%# @encounter.comments.each do |comment| %>
+    <!-- <p><%#= comment.content %><br>
+      <%#= comment.user.email %>
+    </p> -->
+  <%# end %>
 
+<!-- <h3>Add a comment:</h3> -->
+<%#= form_for([@encounter, @encounter.comments.build]) do |f| %>
+  <!-- <p>
+    <%#= f.label :commenter %><br>
+    <%#= f.text_field :commenter %>
+  </p> -->
+  <p>
+    <%#= f.label :comment %><br>
+    <%#= f.text_area :content %>
+  </p>
+  <p>
+    <%#= f.submit %>
+  </p>
+<%# end %>
 
+<% if can? :update, @encounter %>
+  <%= link_to "Edit", edit_encounter_path(@encounter) %> |
+<% end %>    
+<% if can? :destroy, @encounter %>
+  <%= link_to 'Delete', @encounter, method: :delete, data: { confirm: 'Are you sure you want to delete your encounter?' } %> |
+<% end %>
+<%= link_to 'More encounters', "/" %>
 
-
-    <!-- <h3>Add a comment:</h3> -->
-    <%#= form_for([@encounter, @encounter.comments.build]) do |f| %>
-      <!-- <p>
-        <%#= f.label :commenter %><br>
-        <%#= f.text_field :commenter %>
-      </p> -->
-      <p>
-        <%#= f.label :comment %><br>
-        <%#= f.text_area :content %>
-      </p>
-      <p>
-        <%#= f.submit %>
-      </p>
-    <%# end %>
-
-    <% if can? :update, @encounter %>
-      <%= link_to "Edit", edit_encounter_path(@encounter) %> |
-    <% end %>    
-    <% if can? :destroy, @encounter %>
-      <%= link_to 'Delete', @encounter, method: :delete, data: { confirm: 'Are you sure you want to delete your encounter?' } %> |
-    <% end %>
-    <%= link_to 'More encounters', "/" %>
-
-    </article>
+</article>

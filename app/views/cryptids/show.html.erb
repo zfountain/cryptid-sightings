@@ -1,20 +1,29 @@
 <!-- <p id="notice"><#%= notice %></p> -->
-    <h1 class="sub">
-      <%= @cryptid.name %>
-    </h1>
-    <article>
-    <% if @cryptid.image.exists? %>
-      <img src="<%= @cryptid.image(:medium) %>">
-    <% end %>
-    <p>
-      <%= @cryptid.content %>
-    </p>
-    <% if can? :update, @cryptid %>
-      <%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
-      <% end %>
-    <% if can? :destroy, @cryptid %>
-      <%= link_to 'Delete', @cryptid, method: :delete, data: { confirm: 'Are you sure you want to delete this cryptid?' } %> |
-    <% end %>   
-    <%= link_to 'Home', "/" %>
+<h1 class="sub">
+  <%= @cryptid.name %>
+</h1>
+<article>
+  <% if @cryptid.image.exists? %>
+    <img src="<%= @cryptid.image(:medium) %>">
+  <% end %>
+  <p><%= @cryptid.content %></p>
+  
+  <% if @cryptid.encounters.exists? %>
+  <h2><%= @cryptid.name %> Sightings</h2>
+  <% end %>
 
-    </article>
+  <% @cryptid.encounters.each do |encounter| %>
+  <section>
+    <h3><%= link_to encounter.title, encounter_path(encounter) %></h3>
+    <p><%= truncate(encounter.content, length: 80) %></p>
+    <%= link_to "Read more", encounter_path(encounter) %>
+  </section>
+  <% end %>
+  <% if can? :update, @cryptid %>
+    <%= link_to 'Edit', edit_cryptid_path(@cryptid) %> |
+    <% end %>
+  <% if can? :destroy, @cryptid %>
+    <%= link_to 'Delete', @cryptid, method: :delete, data: { confirm: 'Are you sure you want to delete this cryptid?' } %> |
+  <% end %>   
+  <%= link_to 'Home', "/" %>
+</article>

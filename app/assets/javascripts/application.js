@@ -23,7 +23,7 @@ $(document).ready(function() {
     url: "/cryptids",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
-      // console.log(data);
+      console.log(data);
       var cryptids = data;
       for (var i = 0; i < cryptids.length; i++) {
         var cryptid = cryptids[i];
@@ -48,7 +48,7 @@ $(document).ready(function() {
     url: "/encounters",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
-      // console.log(data);
+      console.log(data);
       var encounters = data;
       for (var i = 0; i < encounters.length; i++) {
         var encounter = encounters[i];
