@@ -29,6 +29,9 @@ gem 'sorcery'
 # Use CanCan for authorization
 gem 'cancan'
 
+# Use Figaro for secure configuration
+gem 'figaro'
+
 # Use Paperclip for image uploads
 gem "paperclip", "~> 4.2"
 

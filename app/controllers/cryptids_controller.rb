@@ -27,7 +27,7 @@ class CryptidsController < ApplicationController
   # GET /cryptids/1/edit
   # Displays form for editing an existing cryptid
   def edit
-    authorize! :manage, @cryptid
+    authorize! :update, @cryptid
   end
 
   # POST /cryptids

@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  # get 'password_resets/create'
-
-  # get 'password_resets/edit'
-
-  # get 'password_resets/update'
 
   get 'welcome/index'
 
@@ -14,7 +9,6 @@ Rails.application.routes.draw do
   end
   resources :cryptids
   resources :password_resets
-
 
   get '/login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

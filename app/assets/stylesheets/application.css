@@ -19,11 +19,11 @@ html, body {
 a {
   text-decoration: none;
 }
-a:hover {
-  background-color: #C5BCBD;
-}
 a:visited {
     color: inherit;
+}
+a:hover {
+  background-color: #C5BCBD;
 }
 article {
   background-color: #FFF;
@@ -47,10 +47,11 @@ footer {
 }
 h2 {
   font-size: 2em;
-  margin-bottom: 1%;
+  margin-bottom: 3%;
+  margin-top: 2%;
 }
 h3 {
-  font-size: 1.5em;
+  font-size: 1.75em;
   margin-bottom: 1%;
 }
 li {
@@ -61,6 +62,14 @@ p {
   line-height: 1.5;
   padding-bottom: 1%;
   white-space: pre-wrap;
+}
+section {
+  background-color:#E9E9E9;
+  margin:1%;
+  padding:1%
+}
+#nav > a, span > a {
+  color: #BEE2E7;
 }
 textarea {
   -webkit-box-sizing: border-box;
@@ -76,7 +85,6 @@ textarea {
   float: right;
 }
 #nav > a {
-  color: #BEE2E7;
   font-size: 1.25em;
   text-transform: uppercase;
 }
@@ -129,21 +137,29 @@ textarea {
 .buttons-sidebar {
   background-color:#3299BB;
   border-radius:5px;
-  font-size:1.25em;
-  margin: 5%;
-  padding: 2%;
+  display:block;
+  font-size:1.5em;
+  margin: 2%;
+  padding: 5%;
   text-align:center;
   text-transform:uppercase;
-  width: 65%;
+  width: 95%;
 }
-.buttons-sidebar > a, .buttons-top > a {
-  color:#E9E9E9;
+.buttons-sidebar:hover, .buttons-top:hover {
+  background-color: #C5BCBD;
+  cursor: pointer;
+}
+.buttons-sidebar, .buttons-top {
+  color:#E9E9E9 !important;
 }
 .buttons-sidebar:last-of-type {
   margin-bottom: 10%;
 }
 .buttons-top {
   display: none;
+}
+.buttons-top > a:visited, .buttons-sidebar > a:visited {
+  color:#E9E9E9 !important;
 }
 
 /*Show view*/
@@ -175,7 +191,7 @@ textarea {
 .cryptids-list {
   background-color: #FFF;
   margin: 5%;
-  margin-top:11%;
+  margin-top:18%;
   padding: 5%;
 }
 div.field {
@@ -185,8 +201,9 @@ textarea, input {
   font-size: 1.25em;
 }
 .grid {
-  margin: 0px auto;
+  background-color: #98918B;
   height: 100%;
+  margin: 0px auto;
 }
 .grid:after {
   content:"";
@@ -198,6 +215,7 @@ textarea, input {
 }
 .sub {
   font-size: 3em;
+  line-height: 1;
   margin: 1%;
   margin-bottom: 2%;
 }
@@ -229,10 +247,8 @@ textarea, input {
     float: none;
   }
   .sub {
-    line-height: 90%;
     font-size: 2em;
     padding: 2%;
-    line-height: 1em;
   }
   #site-title {
     font-size: 4em;
