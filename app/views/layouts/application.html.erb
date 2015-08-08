@@ -8,58 +8,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <header>
-      <!-- <span>Tell Your Story</span> -->
-      <span id="site-title"><%= link_to 'Cryptid Sightings', "/" %></span>
-      <div id="nav">
-        <%#= link_to "Encounters", encounters_path %>
-        <%#= link_to "Cryptids", cryptids_path %>
-        <% if current_user %>
-          <%= link_to "My Profile", user_path(current_user.id) %> |
-          <%= link_to "Logout", :logout, method: :post %>
-        <% else %>
-          <%= link_to "Register", new_user_path %> |
-          <%= link_to "Login", :login %>
-        <% end %>
-      </div>
-      <div>
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
-      </div>
-    </header>
-    <div class="grid">
-      <div class="col-2-3">
-        <div>
-          <%= link_to 'Share an Encounter', new_encounter_path, :class => 'buttons-top' %>
+    <div id="wrapper">
+      <header>
+        <!-- <span>Tell Your Story</span> -->
+        <span id="site-title"><%= link_to 'Cryptid Sightings', "/" %></span>
+        <div id="nav">
+          <%#= link_to "Encounters", encounters_path %>
+          <%#= link_to "Cryptids", cryptids_path %>
+          <% if current_user %>
+            <%= link_to "My Profile", user_path(current_user.id) %> |
+            <%= link_to "Logout", :logout, method: :post %>
+          <% else %>
+            <%= link_to "Register", new_user_path %> |
+            <%= link_to "Login", :login %>
+          <% end %>
         </div>
         <div>
-            <%= link_to 'Add a Cryptid', new_cryptid_path, :class => 'buttons-top' %>
+          <p id="notice"><%= flash[:notice] %></p>
+          <p id="alert"><%= flash[:alert] %></p>
         </div>
-        <%= yield %>
-      </div>
-      <div class="col-1-3">
-        <div class="cryptids-list">
+      </header>
+      <div class="grid">
+        <div class="col-2-3">
           <div>
-          <%= link_to 'Share an Encounter', new_encounter_path, :class => 'buttons-sidebar' %>
+            <%= link_to 'Share an Encounter', new_encounter_path, :class => 'buttons-top' %>
           </div>
           <div>
-          <%= link_to 'Add a Cryptid', new_cryptid_path, :class => 'buttons-sidebar' %>
+              <%= link_to 'Add a Cryptid', new_cryptid_path, :class => 'buttons-top' %>
           </div>
-          <h2>Cryptids</h2>
-          <ul id="cryptids">
+          <%= yield %>
+        </div>
+        <div class="col-1-3">
+          <div class="cryptids-list">
+            <div>
+            <%= link_to 'Share an Encounter', new_encounter_path, :class => 'buttons-sidebar' %>
+            </div>
+            <div>
+            <%= link_to 'Add a Cryptid', new_cryptid_path, :class => 'buttons-sidebar' %>
+            </div>
+            <h2>Cryptids</h2>
+            <ul id="cryptids">
 
-            <%# @cryptids.each do |cryptid| %>
-              <!-- <li><%#= link_to cryptid.name, cryptid_path(cryptid) %></li> -->
-            <%# end %>
-          </ul>
+              <%# @cryptids.each do |cryptid| %>
+                <!-- <li><%#= link_to cryptid.name, cryptid_path(cryptid) %></li> -->
+              <%# end %>
+            </ul>
+          </div>
         </div>
       </div>
+      <footer>
+        <p>Don't be scared</p>
+        <span>&copy; 2015 <a href="http://zachfountain.com/" target="_blank" title="Zach Fountain's Website and Portfolio">Zach Fountain</a></span>
+
+      </footer>
     </div>
-    <footer>
-      <p>Don't be scared</p>
-      <span>&copy; 2015 <a href="http://zachfountain.com/" target="_blank" title="Zach Fountain's Website and Portfolio">Zach Fountain</a></span>
-
-    </footer>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

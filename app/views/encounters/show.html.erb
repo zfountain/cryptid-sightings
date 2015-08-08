@@ -7,9 +7,9 @@
     <img src="<%= @encounter.image(:medium) %>">
   <% end %>
   <p><%= @encounter.content %></p>
-  <p>Posted by <%= link_to @encounter.user.username, user_path(@encounter.user) %></p>
-  <p>Location: <%= @encounter.city %>, <%= @encounter.state %>, <%= @encounter.country %></p>
-  <p>Filed under <%= link_to @encounter.cryptid.name, cryptid_path(@encounter.cryptid) %></p>
+  <p class="encounter-detail">Location: <%= @encounter.city %>, <%= @encounter.state %>, <%= @encounter.country %></p>
+  <p class="encounter-detail">Filed under <%= link_to @encounter.cryptid.name, cryptid_path(@encounter.cryptid) %></p>
+  <p>Posted by <%= link_to @encounter.user.username, user_path(@encounter.user) %> on <%= @encounter.created_at.strftime("%B %d, %Y") %></p>
 
   <%# @encounter.comments.each do |comment| %>
     <!-- <p><%#= comment.content %><br>
@@ -23,13 +23,13 @@
     <%#= f.label :commenter %><br>
     <%#= f.text_field :commenter %>
   </p> -->
-  <p>
+<!--   <p>
     <%#= f.label :comment %><br>
     <%#= f.text_area :content %>
   </p>
   <p>
     <%#= f.submit %>
-  </p>
+  </p> -->
 <%# end %>
 
 <% if can? :update, @encounter %>

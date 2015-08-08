@@ -22,7 +22,7 @@
     <div class="field">
       <%= f.label "Which cryptid did you encounter?" %>
       <!-- Pull values from cryptids in the database -->
-      <%= f.collection_select(:cryptid_id, Cryptid.all, :id, :name) do %>
+      <%= f.collection_select(:cryptid_id, Cryptid.order("name"), :id, :name) do %>
         <% [[@cryptid.name, @cryptid.id]].each do |c| %>
           <%= content_tag(:option, c.first, value: c.last) %>
         <% end %>

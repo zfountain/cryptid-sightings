@@ -7,6 +7,7 @@
     <img src="<%= @cryptid.image(:medium) %>">
   <% end %>
   <p><%= @cryptid.content %></p>
+    <p><%= @cryptid.created_at.strftime("%B %d, %Y") %></p>
   
   <% if @cryptid.encounters.exists? %>
   <h2><%= @cryptid.name %> Sightings</h2>
@@ -14,7 +15,7 @@
 
   <% @cryptid.encounters.each do |encounter| %>
   <section>
-    <h3><%= link_to encounter.title, encounter_path(encounter) %></h3>
+    <h3><%= encounter.title %></h3>
     <p><%= truncate(encounter.content, length: 80) %></p>
     <%= link_to "Read more", encounter_path(encounter) %>
   </section>
