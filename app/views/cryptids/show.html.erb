@@ -7,7 +7,6 @@
     <img src="<%= @cryptid.image(:medium) %>">
   <% end %>
   <p><%= @cryptid.content %></p>
-    <p><%= @cryptid.created_at.strftime("%B %d, %Y") %></p>
   
   <% if @cryptid.encounters.exists? %>
   <h2><%= @cryptid.name %> Sightings</h2>
