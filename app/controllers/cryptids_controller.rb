@@ -6,7 +6,9 @@ class CryptidsController < ApplicationController
   # GET /cryptids.json
   # Show data for all cryptids
   def index
-    @cryptids = Cryptid.all
+    # @cryptids = Cryptid.all
+    # Order cryptids alphabetically
+    @cryptids = Cryptid.order('name ASC')
     render json: @cryptids.to_json, status: 200
   end
 

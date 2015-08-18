@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
     user.first_name = strip_tags(user.first_name)
     user.last_name = strip_tags(user.last_name)
     user.email = strip_tags(user.email)
-    user.email = strip_tags(user.email)
   end
 
   # Paperclip image view

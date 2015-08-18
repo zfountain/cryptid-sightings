@@ -6,7 +6,9 @@ class EncountersController < ApplicationController
   # GET /encounters
   # GET /encounters.json
   def index
-    @encounters = Encounter.all
+    # @encounters = Encounter.all
+    # Order encounters in descending date order
+    @encounters = Encounter.order('created_at DESC')
     @cryptids = Cryptid.all
     render json: @encounters.to_json, status: 200
   end
