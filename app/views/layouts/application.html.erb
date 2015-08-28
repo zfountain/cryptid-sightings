@@ -18,10 +18,10 @@
           <%#= link_to "Cryptids", cryptids_path %>
           <% if current_user %>
             <%= link_to "My Profile", user_path(current_user.id) %> |
-            <%= link_to "Logout", :logout, method: :post %>
+            <%= link_to "Log out", :logout, method: :post %>
           <% else %>
             <%= link_to "Register", new_user_path %> |
-            <%= link_to "Login", :login %>
+            <%= link_to "Log in", :login %>
           <% end %>
         </div>
         <div>
