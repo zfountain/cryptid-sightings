@@ -1,44 +1,28 @@
 class EncountersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
   before_action :set_encounter, only: [:show, :edit, :update, :destroy]
-  # load_and_authorize_resource
 
-  # GET /encounters
-  # GET /encounters.json
   def index
-    # @encounters = Encounter.all
-    # Order encounters in descending date order
     @encounters = Encounter.order('created_at DESC')
     @cryptids = Cryptid.all
     render json: @encounters.to_json, status: 200
   end
 
-  # GET /encounters/1
-  # GET /encounters/1.json
   def show
     @encounter = Encounter.find(params[:id])
-    # render json: @encounter.to_json, status: 200
-    # Manually manage authorization in ability.rb
     authorize! :read, @encounter
   end
 
-  # GET /encounters/new
   def new
     @encounter = Encounter.new
   end
 
-  # GET /encounters/1/edit
   def edit
     authorize! :manage, @encounter
   end
 
-  # POST /encounters
-  # POST /encounters.json
   def create
-    # @encounter = Encounter.new(encounter_params)
-    # Ties user to an encounter
     @encounter = current_user.encounters.build(encounter_params)
-
     respond_to do |format|
       if @encounter.save
         format.html { redirect_to @encounter, notice: 'Encounter was successfully created.' }
@@ -50,8 +34,6 @@ class EncountersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /encounters/1
-  # PATCH/PUT /encounters/1.json
   def update
     respond_to do |format|
       if @encounter.update(encounter_params)
@@ -64,8 +46,6 @@ class EncountersController < ApplicationController
     end
   end
 
-  # DELETE /encounters/1
-  # DELETE /encounters/1.json
   def destroy
     @encounter.destroy
     respond_to do |format|

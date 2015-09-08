@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
   def index
     if can? :read, @user
       @users = User.all
@@ -12,8 +10,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     # if can? :read, @user
     #   user ||= User.new
@@ -22,18 +18,14 @@ class UsersController < ApplicationController
     # end
   end
 
-  # GET /users/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
   def edit
    authorize! :manage, @user
   end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
 
@@ -49,8 +41,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     # Allow only admins to assign user roles
     authorize! :assign_roles, @user if params[:user][:assign_roles]
@@ -66,8 +56,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|

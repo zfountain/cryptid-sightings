@@ -48,7 +48,6 @@
   </div>
 
   <div class="field">
-    <!-- Check to see if the user is an admin before assigning roles -->
     <% if can? :manage, User %>
     <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
     <% end %>

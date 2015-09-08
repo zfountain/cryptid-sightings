@@ -38,21 +38,17 @@ body {
   background-color: #98918B;
   font-family: 'Roboto Condensed', sans-serif;
 }
-header {
+header, footer {
   background-color: #72818B;
   color: #c4e4e9;
   padding: 1%;
   text-align: center;
 }
 footer {
-  background-color: #72818B;
-  color: #c4e4e9;
   height: 100px;
-  padding: 1%;
   position: absolute;
   bottom: 0px;
   left: 0px;
-  text-align: center;
   width: 100%;
 }
 h2 {
@@ -85,7 +81,6 @@ textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-
   width: 100%;
 }
 #encounter_cryptid_id {

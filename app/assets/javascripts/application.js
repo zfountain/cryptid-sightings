@@ -42,8 +42,6 @@ $(document).ready(function() {
       // alert("Done Loading!");
     }
   });
-
-//  function encountersList() {
   // Get encounters from database
   $.ajax({
     type: "get",
@@ -80,10 +78,4 @@ $(document).ready(function() {
       // alert("Done Loading!");
     }
   });
-//  }
-
-  //var counter = encounters.length++;
-  // $("#load-more").click(function(){
-  //   encountersList();
-  // });
 });

@@ -2,39 +2,23 @@ class CryptidsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
   before_action :set_cryptid, only: [:show, :edit, :update, :destroy]
 
-  # GET /cryptids
-  # GET /cryptids.json
-  # Show data for all cryptids
   def index
-    # @cryptids = Cryptid.all
-    # Order cryptids alphabetically
     @cryptids = Cryptid.order('name ASC')
     render json: @cryptids.to_json, status: 200
   end
 
-  # GET /cryptids/1
-  # GET /cryptids/1.json
-  # Show data for one cryptid
   def show
     @cryptid = Cryptid.find(params[:id])
-    # render json: @cryptid.to_json, status: 200
   end
 
-  # GET /cryptids/new
-  # Displays form for creating a new cryptid
   def new
     @cryptid = Cryptid.new
   end
 
-  # GET /cryptids/1/edit
-  # Displays form for editing an existing cryptid
   def edit
     authorize! :update, @cryptid
   end
 
-  # POST /cryptids
-  # POST /cryptids.json
-  # Processes data from the new cryptid form and creates a cryptid
   def create
     @cryptid = Cryptid.new(cryptid_params)
 
@@ -49,9 +33,6 @@ class CryptidsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cryptids/1
-  # PATCH/PUT /cryptids/1.json
-  # Processes data from the edit cryptid form and updates the cryptid
   def update
     respond_to do |format|
       if @cryptid.update(cryptid_params)
@@ -64,9 +45,6 @@ class CryptidsController < ApplicationController
     end
   end
 
-  # DELETE /cryptids/1
-  # DELETE /cryptids/1.json
-  # Deletes the cryptid
   def destroy
     @cryptid.destroy
     respond_to do |format|
