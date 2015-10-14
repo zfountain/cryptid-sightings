@@ -1,12 +1,12 @@
 <% if @user.image.exists? %>
   <img src="<%= @user.image(:medium) %>">
 <% end %>
-<h1 class="sub"><%= @user.username %>, Cryptozoologist Extraordinaire</h1>
+<h1><%= @user.username %>, Cryptozoologist Extraordinaire</h1>
 <article>
 <h2>Sightings by <%= @user.username %></h2>
 <% @user.encounters.each do |encounter| %>
 <section>
-  <h2><%= link_to encounter.title, encounter_path(encounter) %></h2>
+  <h3><%= encounter.title %></h3>
   <p><%= truncate(encounter.content, length: 80) %></p>
   <span><%= link_to "Read more", encounter_path(encounter) %></span>
 </section>

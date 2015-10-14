@@ -8,6 +8,8 @@
     <%= password_field_tag :password %>
   </div>
   <div class="actions">
-    <%= submit_tag "Log in" %>
+    <%= submit_tag "Log in", :class => 'buttons-form' %>
   </div>
+  <p>OR</p>
+  <%= link_to 'Register', "/users/new", :class => 'buttons-form' %>
 <% end %>
