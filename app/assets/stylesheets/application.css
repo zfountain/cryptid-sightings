@@ -255,7 +255,7 @@ textarea, input {
 }
 
 /* Responsive settings */
-@media (max-width: 700px) {
+@media (max-width: 926px) {
   /*Main column*/ 
   footer {
     height: 70px;

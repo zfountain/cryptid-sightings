@@ -39,6 +39,8 @@ gem "paperclip", "~> 4.2"
 # Use aws-sdk for image storage
 gem 'aws-sdk', '~> 1.6'
 
+gem 'rails-deprecated_sanitizer'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', git'~> 3.1.7'
 
